@@ -1,3 +1,5 @@
+require "shooter_game/game_audio"
+
 module ShooterGame
     module ContextUsage
         module Sound
@@ -12,6 +14,11 @@ module ShooterGame
 
             def init_sound
                 set_volume(DEFAULT_LEVEL)
+                self[:audio] = GameAudio.new(volume_level: volume)
+            end
+
+            def audio
+                self[:audio]
             end
 
             def volume
